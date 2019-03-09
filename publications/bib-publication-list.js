@@ -230,6 +230,7 @@ var bibtexify = (function($) {
             'misc': 'Misc',
             'phdthesis': 'PhD Thesis',
             'proceedings': 'Conference proceeding',
+            'preprint': 'Preprint',
             'techreport': 'Technical report',
             'unpublished': 'Unpublished'}
     };
