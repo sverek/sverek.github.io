@@ -305,7 +305,7 @@ var bibtexify = (function($) {
                               'bPaginate': false
                             }, this.options.datatable));
         if (this.options.visualization) {
-            this.addBarChart();
+            // this.addBarChart();
         }
         $("th", this.$pubTable).unbind("click").click(function(e) {
           var $this = $(this),
