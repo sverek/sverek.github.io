@@ -896,6 +896,7 @@ function BibTex(options)
 		'misc',
 		'phdthesis',
 		'proceedings',
+        'preprint'
 		'techreport',
 		'unpublished'
 	);
