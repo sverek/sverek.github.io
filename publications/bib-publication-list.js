@@ -432,7 +432,7 @@ var bibtexify = (function($) {
     //   - bib2html: Can be used to override any of the functions or properties of
     //               the bib2html object. See above, starting around line 40.
     return function(bibsrc, bibElemId, opts) {
-        var options = $.extend({}, {'visualization': true,
+        var options = $.extend({}, {'visualization': false,
                                 'sorting': [[0, "desc"], [1, "desc"]]},
                                 opts);
         var $pubTable = $("#" + bibElemId).addClass("bibtable");
