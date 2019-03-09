@@ -216,6 +216,7 @@ var bibtexify = (function($) {
             'incollection': 50,
             'proceedings': 60,
             'conference': 70,
+            'preprint': 75,
             'article': 80,
             'phdthesis': 90,
             'inbook': 100,
