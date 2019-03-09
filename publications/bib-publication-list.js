@@ -341,80 +341,80 @@ var bibtexify = (function($) {
         }
     };
     // adds the barchart of year and publication types
-    bibproto.addBarChart = function addBarChart() {
-        var yearstats = [];
-        var maxItems = 0;
-        var maxTypes = 0;
-        $.each(this.stats, function(key, value) {
-            var types = [];
-            $.each(value.types, function(type) {
-              types.push(type);
-            });
-            types.sort(function(x, y) {
-              return bib2html.importance[y] - bib2html.importance[x];
-            });
+    // bibproto.addBarChart = function addBarChart() {
+    //     var yearstats = [];
+    //     var maxItems = 0;
+    //     var maxTypes = 0;
+    //     $.each(this.stats, function(key, value) {
+    //         var types = [];
+    //         $.each(value.types, function(type) {
+    //           types.push(type);
+    //         });
+    //         types.sort(function(x, y) {
+    //           return bib2html.importance[y] - bib2html.importance[x];
+    //         });
 
-            yearstats.push({'year': key, 'count': value.count,
-                'item': value, 'types': value.types, typeArr: types});
-            maxItems = Math.max(maxItems, value.count);
-            maxTypes = Math.max(maxTypes, types.length);
-        });
-        var isTypeMode = maxItems > 15;
-        yearstats.sort(function(a, b) {
-            var diff = a.year - b.year;
-            if (!isNaN(diff)) {
-              return diff;
-            } else if (a.year < b.year) {
-              return -1;
-            } else if (a.year > b.year) {
-              return 1;
-            }
-            return 0;
-        });
-        var chartIdSelector = '#' + this.$pubTable[0].id + 'pubchart';
-        var chartHeight = $(chartIdSelector).height();
-        var styleStr = chartIdSelector + ' .year { width: ' +
-                        (100.0/yearstats.length) + '%; }';
-        var legendTypes = [];
-        var stats2html = function(item) {
-            var types = item.typeArr;
-            var borderHeight = isTypeMode ? types.length * 2 : item.count * 2;
-            var totalHeight = item.count / maxItems * chartHeight;
-            var pubHeight = (totalHeight - borderHeight) / item.count;
-            var str = '<div class="year">';
-            str += '<div class="filler" style="height:' + (chartHeight - totalHeight) + 'px;"></div>';
-            var itemStr = '';
-            for (var i = 0; i < types.length; i++) {
-                var type = types[i];
-                if (legendTypes.indexOf(type) === -1) {
-                    legendTypes.push(type);
-                }
-                if (isTypeMode) {
-                    // just one block for publication type
-                    itemStr += '<div style="height:' + (item.types[type] * pubHeight) + 'px" class="pub ' + type + '"></div>';
-                } else {
-                    // one block for each entry of the publication type
-                    for (var j = 0; j < item.types[type]; j++) {
-                        itemStr += '<div style="height:' + pubHeight + 'px" class="pub ' + type + '"></div>';
-                    }
-                }
-            }
-            str += itemStr;
+    //         yearstats.push({'year': key, 'count': value.count,
+    //             'item': value, 'types': value.types, typeArr: types});
+    //         maxItems = Math.max(maxItems, value.count);
+    //         maxTypes = Math.max(maxTypes, types.length);
+    //     });
+    //     var isTypeMode = maxItems > 15;
+    //     yearstats.sort(function(a, b) {
+    //         var diff = a.year - b.year;
+    //         if (!isNaN(diff)) {
+    //           return diff;
+    //         } else if (a.year < b.year) {
+    //           return -1;
+    //         } else if (a.year > b.year) {
+    //           return 1;
+    //         }
+    //         return 0;
+    //     });
+    //     var chartIdSelector = '#' + this.$pubTable[0].id + 'pubchart';
+    //     var chartHeight = $(chartIdSelector).height();
+    //     var styleStr = chartIdSelector + ' .year { width: ' +
+    //                     (100.0/yearstats.length) + '%; }';
+    //     var legendTypes = [];
+    //     var stats2html = function(item) {
+    //         var types = item.typeArr;
+    //         var borderHeight = isTypeMode ? types.length * 2 : item.count * 2;
+    //         var totalHeight = item.count / maxItems * chartHeight;
+    //         var pubHeight = (totalHeight - borderHeight) / item.count;
+    //         var str = '<div class="year">';
+    //         str += '<div class="filler" style="height:' + (chartHeight - totalHeight) + 'px;"></div>';
+    //         var itemStr = '';
+    //         for (var i = 0; i < types.length; i++) {
+    //             var type = types[i];
+    //             if (legendTypes.indexOf(type) === -1) {
+    //                 legendTypes.push(type);
+    //             }
+    //             if (isTypeMode) {
+    //                 // just one block for publication type
+    //                 itemStr += '<div style="height:' + (item.types[type] * pubHeight) + 'px" class="pub ' + type + '"></div>';
+    //             } else {
+    //                 // one block for each entry of the publication type
+    //                 for (var j = 0; j < item.types[type]; j++) {
+    //                     itemStr += '<div style="height:' + pubHeight + 'px" class="pub ' + type + '"></div>';
+    //                 }
+    //             }
+    //         }
+    //         str += itemStr;
 
-            return str + '<div class="yearlabel">' + item.year + '</div></div>';
-        };
-        var statsHtml = '<style>' + styleStr + '</style>';
-        yearstats.forEach(function(item) {
-            statsHtml += stats2html(item);
-        });
-        var legendHtml = '<div class="legend">';
-        for (var i = 0, l = legendTypes.length; i < l; i++) {
-            var legend = legendTypes[i];
-            legendHtml += '<span class="pub ' + legend + '"></span>' + bib2html.labels[legend];
-        }
-        legendHtml += '</div>';
-        $(chartIdSelector).html(statsHtml).after(legendHtml);
-    };
+    //         return str + '<div class="yearlabel">' + item.year + '</div></div>';
+    //     };
+    //     var statsHtml = '<style>' + styleStr + '</style>';
+    //     yearstats.forEach(function(item) {
+    //         statsHtml += stats2html(item);
+    //     });
+    //     var legendHtml = '<div class="legend">';
+    //     for (var i = 0, l = legendTypes.length; i < l; i++) {
+    //         var legend = legendTypes[i];
+    //         legendHtml += '<span class="pub ' + legend + '"></span>' + bib2html.labels[legend];
+    //     }
+    //     legendHtml += '</div>';
+    //     $(chartIdSelector).html(statsHtml).after(legendHtml);
+    // };
 
     // Creates a new publication list to the HTML element with ID
     // bibElemId. The bibsrc can be
