@@ -163,6 +163,12 @@ var bibtexify = (function($) {
                 ((entryData.howpublished)?entryData.howpublished + ". ":"") +
                 ((entryData.note)?entryData.note + ".":"");
         },
+        preprint: function(entryData) {
+            return this.authors2html(entryData.author) + " (" + entryData.year + "). " +
+                entryData.title + ". " +
+                ((entryData.howpublished)?entryData.howpublished + ". ":"") +
+                ((entryData.note)?entryData.note + ".":"");
+        },
         mastersthesis: function(entryData) {
             return this.authors2html(entryData.author) + " (" + entryData.year + "). " +
             entryData.title + ". " + entryData.type + ". " +
