@@ -50,3 +50,7 @@ ul.foo {
     line-height: 1.4em;
     color: #333;
 }
+.frontimg { 
+    float: left; 
+    border-radius: 50%;
+}
