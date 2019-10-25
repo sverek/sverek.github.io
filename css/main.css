@@ -57,6 +57,12 @@ ul.foo {
     border-radius: 50%;
     margin-right: 30px;
 }
+.frontimgl2 { 
+    width : 150px;
+    height: auto;
+    float: left; 
+    margin-right: 30px;
+}
 .frontimgr { 
     width : 250px;
     height: auto;
