@@ -61,11 +61,11 @@ ul.foo {
     width : 150px;
     height: auto;
     float: left; 
-    margin-right: 40px;
+    margin-right: 50px;
 }
 .frontimgr { 
     width : 250px;
     height: auto;
     float: right; 
-    margin-left: 20px;
+    margin-left: 10px;
 }
