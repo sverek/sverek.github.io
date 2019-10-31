@@ -72,6 +72,7 @@ ul.foo {
 }
 .allSides
     {
+      max-width: max-content
       margin: auto;
       border: solid 1px #555;
       padding: 20px;
