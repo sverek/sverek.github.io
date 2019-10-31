@@ -72,9 +72,9 @@ ul.foo {
 }
 .allSides
     {
-      float: center;
-      width:400px;height:200px;
+      margin: auto;
       border: solid 1px #555;
+      padding: auto;
       background-color: #eed;
       box-shadow:  0 0 10px  rgba(0,0,0,0.6);
       -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
