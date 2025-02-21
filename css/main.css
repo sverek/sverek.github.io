@@ -83,3 +83,19 @@ ul.foo {
       -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
       -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
     }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #eed;
+}
